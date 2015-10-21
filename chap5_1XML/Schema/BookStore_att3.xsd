@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<xsd:schema targetNamespace="http://www.books.org" xmlns="http://www.books.org" xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+	<xsd:element name="BookStore">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="Book" maxOccurs="unbounded">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="Title"  >
+								<xsd:complexType>
+								    <xsd:simpleContent>
+								    	<xsd:extension base="xsd:string">															<xsd:attribute name="aa" type="xsd:string" use="required"/>
+										</xsd:extension>
+									</xsd:simpleContent>
+
+								</xsd:complexType>
+							</xsd:element>
+							<xsd:element name="Author" type="xsd:string" maxOccurs="unbounded"/>
+							<xsd:element name="Date" type="xsd:string"/>
+							<xsd:element name="ISBN" type="xsd:string"/>
+							<xsd:element name="Publisher" type="xsd:string"/>
+						</xsd:sequence>
+						<xsd:attribute name="Category" use="required">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:enumeration value="autobiography"/>
+									<xsd:enumeration value="non-fiction"/>
+									<xsd:enumeration value="fiction"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:attribute>
+						<xsd:attribute name="InStock" type="xsd:boolean" default="false"/>
+						<xsd:attribute name="Reviewer" type="xsd:string" default=" "/>
+					</xsd:complexType>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>

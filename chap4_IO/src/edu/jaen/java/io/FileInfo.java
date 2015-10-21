@@ -24,14 +24,19 @@ long length() : 크기 알려주기
 boolean delete() : 삭제하기 */
  
 import java.io.*;
+import java.util.Scanner;
 
 class FileInfo {
    public static void main(String arg[])throws Exception {
-      if (arg.length != 1)    {
+/*      if (arg.length != 1)    {
          System.out.println("Usage: java FileInfo filename");
          System.exit(0);
       }
-      File file = new File(arg[0]);
+*/
+	   Scanner sc = new Scanner(System.in);
+	   System.out.println("Input file name want to get information:");
+	   String fname = sc.next();
+	  File file = new File(fname);
       if (file.exists()) {
         System.out.println("파일 이름 : " + file.getName());
 		System.out.println("상대 패스 : " + file.getPath());
@@ -40,8 +45,12 @@ class FileInfo {
 		System.out.println("쓰기 가능 : " + file.canWrite());
 		System.out.println("읽기 가능 : " + file.canRead());
 		System.out.println("파일 길이 : " + file.length() + " 바이트");
+		Scanner sc2 = new Scanner(file);
+		while(sc2.hasNextLine()) {
+			System.out.println(sc2.nextLine());
+		}
       }else {
-         System.out.println(arg[0] + "not found");
+         System.out.println(fname + "not found");
       }          
    }
 }

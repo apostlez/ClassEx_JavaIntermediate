@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='euc-kr' ?>
+<!ELEMENT 주소록 ( 정보 )*>
+<!ELEMENT 정보 ( 이름, email, 휴대전화 )>
+<!ATTLIST 정보 주민번호 ID #REQUIRED>
+<!ELEMENT 이름 ( #PCDATA )>
+<!ELEMENT email ( #PCDATA )>
+<!ELEMENT 휴대전화 ( #PCDATA )>

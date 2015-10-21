@@ -75,7 +75,8 @@ public class ContactMain implements ActionListener,ItemListener{
 		f.addWindowListener(new WindowAdapter(){
 			public void windowClosing(WindowEvent e)
 			{
-							System.exit(0);
+				cl.close();
+				System.exit(0);
 			} 
 		});
 		insertb.addActionListener(this);

@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<BookStore xmlns ="http://www.books.org"
+                    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                    xsi:schemaLocation="http://www.books.org
+                                                          BookStore_att1.xsd">
+        <Book Category="fiction">
+                <Title>My Life and Times</Title>
+                <Author>Paul McCartney</Author>
+                <Date>1998</Date>
+                <ISBN>923-1202</ISBN>
+                <Publisher>McMillin Publishing</Publisher>
+        </Book>
+</BookStore>

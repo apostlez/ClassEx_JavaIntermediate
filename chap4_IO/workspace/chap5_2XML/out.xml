@@ -1,0 +1,28 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<TITLE>주소록xsl</TITLE>
+</head>
+<body>
+<table border="1">
+<tr>
+<td>이름</td><td>번호</td><td>email</td><td>휴대전화</td>
+</tr>
+<tr>
+<td>홍길동</td><td>a111-111</td><td>artemis@abc.com</td><td>
+<휴대전화>011-999-9999</휴대전화>
+</td>
+</tr>
+<tr>
+<td>소나무</td><td>a111-112</td><td>diana@abc.com</td><td>
+<휴대전화>011-999-9999</휴대전화>
+</td>
+</tr>
+<tr>
+<td>박정님</td><td>a111-113</td><td>carpediem@abc.com</td><td>
+<휴대전화>019-9999</휴대전화>
+</td>
+</tr>
+</table>
+</body>
+</html>

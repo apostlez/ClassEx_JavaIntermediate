@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='euc-kr' ?>
+<?xml-stylesheet type="text/xsl" href="addr_name.xsl" ?>
+<!DOCTYPE 주소록 SYSTEM "addr.dtd">
+<주소록>
+	<정보 주민번호="a111-111">
+		<이름>홍길동</이름>
+		<email>artemis@abc.com</email>
+		<휴대전화>011-999-9999</휴대전화>
+	</정보>
+	<정보 주민번호="a111-112">
+		<이름>소나무</이름>
+		<email>diana@abc.com</email>
+		<휴대전화>011-999-9999</휴대전화>
+	</정보>
+	<정보 주민번호="a111-113">
+		<이름>박정님</이름>
+		<email>carpediem@abc.com</email>
+		<휴대전화>019-9999</휴대전화>
+	</정보>
+</주소록>

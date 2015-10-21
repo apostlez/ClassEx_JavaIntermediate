@@ -1,6 +1,9 @@
 package edu.jaen.java;
 
 import java.util.*;
+
+import edu.jaen.java.Customer;
+
 import java.io.*;
 /** 고객의 데이타를 관리, 저장하는 클래스 */
 public class  CustomerDAO{
@@ -15,24 +18,47 @@ public class  CustomerDAO{
 		File file=new File("cust.dat");
 		if (!file.exists()) { return; }
 			
-			
-			
-			
-			//  구현해 보세요
-			
-			
-			
-		
+		try {
+			ois = new ObjectInputStream (new FileInputStream (file));
+			//list.add((Customer) ois.readObject());
+			list.addAll((ArrayList<Customer>) ois.readObject());
+		} catch (EOFException e) {
+			System.out.println("eof");
+	    } catch (IOException e) {
+	    	e.printStackTrace ();
+	    } catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} finally {
+			if(ois != null)
+				try {
+					ois.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+		}
 	}
 /** 종료하기 전에 메모리의 내용을 파일에 저장하기 */
 	public void close(){
-
-		
-		//  구현해 보세요
-		
-		
-		
-		
+		if(list.size() == 0) {
+			return;
+		}
+		ObjectOutputStream s = null;
+		try {
+			s = new ObjectOutputStream (new FileOutputStream ("cust.dat"));
+			s.writeObject(list);
+/*			for(Customer c : list) {
+				s.writeObject(c);
+	        }
+*/			System.out.println(" 파일이 생성되었습니다");
+		} catch (IOException e) {
+			e.printStackTrace ();
+		} finally {
+			try {
+				s.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
 	}
 
 /** 전달된 고객의 정보를 추가한다.*/

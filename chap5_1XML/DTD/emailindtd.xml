@@ -1,0 +1,17 @@
+<?xml version="1.0" ?>
+<!DOCTYPE MAIL [
+	<!ELEMENT MAIL (HEADER, BODY)>
+	<!ELEMENT HEADER (RECEIVER, SENDER, TITLE)>
+	<!ELEMENT RECEIVER (#PCDATA)>
+	<!ELEMENT SENDER (#PCDATA)>
+	<!ELEMENT TITLE (#PCDATA)>
+	<!ELEMENT BODY (#PCDATA)>
+]>
+<MAIL>
+	<HEADER>
+		<RECEIVER>diana@hitel.net</RECEIVER>
+		<SENDER>diananim@korea.com</SENDER>
+		<TITLE >Test</TITLE>
+	</HEADER>
+	<BODY>internal dtd example</BODY>
+</MAIL>

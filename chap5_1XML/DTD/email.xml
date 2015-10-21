@@ -1,0 +1,10 @@
+<?xml version="1.0" ?>
+<!DOCTYPE MAIL SYSTEM "email.dtd">
+<MAIL>
+	<HEADER>
+		<RECEIVER>diana@hitel.net</RECEIVER>
+		<SENDER>diananim@korea.com</SENDER>
+		<TITLE>Test</TITLE>
+	</HEADER>
+	<BODY>internal dtd example</BODY>
+</MAIL>
