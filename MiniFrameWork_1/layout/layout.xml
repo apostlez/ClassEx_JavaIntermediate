@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Panel>
+	<Button label="call Second Activity" id="btn1"></Button>
+	<Button label="button" id="btn2"></Button>
+	<Label  text="text....."  id="t1" />	
+</Panel>

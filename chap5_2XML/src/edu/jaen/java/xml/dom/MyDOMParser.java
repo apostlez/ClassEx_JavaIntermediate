@@ -25,6 +25,7 @@ public class MyDOMParser {
 				Check check = new Check();
 				Node item = items.item(i);
 				check.setCode(item.getAttributes().getNamedItem("code").getNodeValue());
+				check.setDate(item.getAttributes().getNamedItem("date").getNodeValue());
 				NodeList properties = item.getChildNodes();
 				for (int j=0;j<properties.getLength();j++){
 					Node property = properties.item(j);

@@ -108,6 +108,9 @@ ActionListener ÀÇ actionPerformed method Overrinding*/
 		nametf.setText(" ");
 		phonetf.setText(" ");
 		hotKeytf.setText(" ");
+		nametf.setText("");
+		phonetf.setText("");
+		hotKeytf.setText("");
 	}
 	public  void showDialog(String msg){
 		md.show(msg);

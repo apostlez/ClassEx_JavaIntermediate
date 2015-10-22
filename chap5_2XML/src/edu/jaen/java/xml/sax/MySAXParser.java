@@ -17,6 +17,7 @@ public class MySAXParser {
 		SAXParserFactory factory = SAXParserFactory.newInstance();
 		try {
 			SAXParser parser = factory.newSAXParser();
+			System.out.println(parser.getClass().getName());
 			MyHandler handler = new MyHandler();
 			parser.parse(new URL(url).openConnection().getInputStream(), handler);
 			return list;
@@ -67,6 +68,7 @@ public class MySAXParser {
 			if (name.equalsIgnoreCase("Check")){
 				ch = new Check();
 				ch.setCode(attributes.getValue(0));
+				ch.setDate(attributes.getValue(1));
 			}
 	}
 }
