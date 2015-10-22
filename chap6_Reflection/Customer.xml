@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<customrelist>
+	<customer>
+		<name type="string"  value="자앤"/>
+		<address type="string" value="방배"/>
+		<age type="integer" value="2"/>
+	</customer>
+	<customer>
+		<name type="string"  value="홍길동"/>
+		<address type="string" value="서울"/>
+		<age type="integer" value="20"/>
+	</customer>
+</customrelist>

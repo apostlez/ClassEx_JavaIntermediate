@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phonelist>
+	<phone>
+		<name type="string"  value="자앤"/>
+		<no type="string" value="02"/>
+		<hotkey type="integer" value="1"/>
+	</phone>
+	<phone>
+		<name type="string"  value="홍길동"/>
+		<no type="string" value="03"/>
+		<hotkey type="integer" value="2"/>
+	</phone>
+</phonelist>

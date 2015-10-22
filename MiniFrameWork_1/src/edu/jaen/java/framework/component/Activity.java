@@ -89,9 +89,9 @@ public class Activity extends Context {
 		
 		// -----2단계 DOM : 파서를 통해 root Element 추출한다.		
 		//구현하세요~***********************************************************
-		DocumentBuilder dBuilder = null;
-		Document doc = null;
-		Element root =null;
+		DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+		Document doc = dBuilder.parse(xml);
+		Element root =doc.getDocumentElement();
 		
 		
 		/* root.normalize();실행 태그사이의 공백을 제거해 주고, 비어있는 엘리먼트는 빈 태그로 바꿔준다 */
@@ -192,6 +192,19 @@ public class Activity extends Context {
 		 */
 
 		//구현하세요~~*********************************************
+		NodeList clist = parentNode.getChildNodes();
+		for(int i = 0; clist.getLength() > i; i++) {
+			Node child = clist.item(i);
+			if(child.getNodeType() == Node.ELEMENT_NODE) {
+				Element e = (Element) child;
+				Component cmp = createUIComponent(e, container);
+				cmpmap.put(e.getAttribute("id"), cmp);
+				
+				if (cmp instanceof Container) {
+					loadChild(e, (Container) cmp);
+				}
+			}
+		}
 	}
 
 	/**

@@ -121,7 +121,24 @@ public class ActivityManager {
 				// 같으면 loadClass()를 이용하여 Context를 생성하고
 			    
 				// 구현하세요~~~#################################################33
-
+				// comName이 이미 실행중인 component라 실행하지 안는다
+				if (activeCom.get(componentName) != null) {
+					System.out.println("이미 실행중인 component는 다시 실행하지 안는다");
+					flag = true;
+				} else {
+					Context c = (Context) newClass(componentName);
+					if (componentKnd == 1) {
+						c.execute(ACTIVITY);
+						// 실행시킨 component는 activeCom에 cmpName을 키값으로 저장한다
+						activeCom.put(componentName, new ComponentKind(ACTIVITY, componentName));
+					} else if (componentKnd == 2) {
+						c.execute(SERVICE);
+						// 실행시킨 component는 activeCom에 cmpName을 키값으로 저장한다
+						activeCom.put(componentName, new ComponentKind(SERVICE, componentName));
+					}
+					flag = true;
+				}
+				break;
 			}
 		}
 
@@ -129,8 +146,9 @@ public class ActivityManager {
 			// -----3단계 :
 			// MessageDialog 객체를 생성하고 창제목으로는 "경 고"를 메세지로는
 			// "컴폰언트가 등록되어있지 안습니다." 라고 한다
-
 			// 구현하세요~~~~#################################################33
+			MessageDialog md = new MessageDialog(getFrame(), "경 고");
+			md.show("컴폰언트가 등록되어있지 안습니다.");
 		}
 	}
 
@@ -148,24 +166,20 @@ public class ActivityManager {
 		Object obj = null;
 		String fileName = "edu.jaen.java.framework.app." + name;
 
-		/*try {
-
+		try {
 			// -----3단계 : name에 해당하는 클래스를 리플렉션을 이용하여 객체생성한다.
 			// 단 패키지이름은 edu.jaen.java.framework.app 로 지정한다.
+			c = Class.forName(fileName);
 			// -----3단계 : 로드한 클래스로 부터 객체 생성한다.
-
-
 			// 구현하세요~~~~#################################################33
-			
-			
-			
+			obj = c.newInstance();
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (InstantiationException e) {
 			e.printStackTrace();
 		} catch (IllegalAccessException e) {
 			e.printStackTrace();
-		}*/
+		}
 		return obj;
 	}
 
