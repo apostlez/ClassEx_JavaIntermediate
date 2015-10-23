@@ -17,6 +17,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Scanner;
 import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.parsers.SAXParser;
@@ -42,7 +43,12 @@ public class ActivityManager {
 
 	private final static int ACTIVITY = 1;
 	private final static int SERVICE = 2;
-
+	private ExecutorService pool =Executors.newFixedThreadPool(10);
+	
+	public void startThread(Runnable r) {
+		pool.execute(r);
+	}
+	
 	/** singleton parttern을 위한 생성자 */
 	private ActivityManager() {
 	}
@@ -52,12 +58,30 @@ public class ActivityManager {
 		return am;
 	}
 
+	Runnable r = new Runnable() {
+		public void run() {
+			Scanner s = new Scanner(System.in);
+			while(true) {
+				System.out.println("다시 실행하고자 ㅎ란다면 restart를 입력후 엔터키를 눌러주세요.");
+				String msg = s.nextLine();
+				if(msg.equalsIgnoreCase("restart")) {
+					executeComponent();
+				}
+				if(msg.equalsIgnoreCase("exit")) {
+					break;
+				}
+			}
+			s.close();
+		}
+	};
+
 	/** ActivityManager 실행 메소드 */
 	public void managerAction() {
 		// loadManifest() 를 실행하여 Manifest.xml 을 로딩한
 		// executeComponent() 를 실행하여 등록되어 있는 Component를 실행한다
 		loadManifest();
 		executeComponent();
+		pool.execute(r);
 	}
 
 	/** 실행중인 컴폰언트 저장 객체 */
@@ -85,11 +109,11 @@ public class ActivityManager {
 			// 실행시킬 컴포넌트 이름
 			String comName = m.getName();
 
-			// comName이 이미 실행중인 component라 실행하지 안는다
+			/*// comName이 이미 실행중인 component라 실행하지 안는다
 			if (activeCom.get(comName) != null) {
 				System.out.println("이미 실행중인 component는 다시 실행하지 안는다");
 				continue;
-			}
+			}*/
 
 			// loadClass()를 이용하여 객체들 생성하고 실행한다
 			if (m.getComponentKnd().equalsIgnoreCase("activity") && m.getInitstart().equals("true")) {
